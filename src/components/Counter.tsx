@@ -4,7 +4,7 @@ export default function Counter() {
 	const updateCount = () => setCount(count + 2);
 	return (
 		<>
-			<h2>Count = {count}</h2>
+			<h2 className="text-3xl">Count = {count}</h2>
 			<button type="button" onClick={updateCount}>
 				Count + 2
 			</button>

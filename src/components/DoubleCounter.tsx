@@ -27,7 +27,10 @@ export default function DoubleCounter() {
 	};
 	return (
 		<div className="m-4 flex flex-col justify-evenly items-center">
-			<h1 className="m-2">Score Keeper</h1>
+			<h2 className="m-2 text-3xl">Score Keeper</h2>
+			<h3 className="text-yellow-300">
+				Click player button to increase <i>their</i> score
+			</h3>
 			<div className="flex flex-row justify-evenly items-center w-full">
 				<h3 className="text-red-600">Player 1: {scores.p1Score}</h3>
 				<h3 className="text-blue-600">Player 2: {scores.p2Score}</h3>

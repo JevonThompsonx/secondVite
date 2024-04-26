@@ -5,16 +5,21 @@ export default function ObjectStateReview() {
 		player1: true,
 		player2: false,
 	});
-
-	const changeColor = (player: string) => {
-		setColorObject(() => {
-			return { ...currentColorObject, player: !currentColorObject.player };
+	const p1ChangeColor = () => {
+		setColorObject((currentColorObject) => {
+			return { ...currentColorObject, player1: !currentColorObject.player1 };
+		});
+	};
+	const p2ChangeColor = () => {
+		setColorObject((currentColorObject) => {
+			return { ...currentColorObject, player2: !currentColorObject.player2 };
 		});
 	};
 
 	return (
 		<div className="object-state-review-base flex flex-col w-4/5 h-4/5 m-auto justify-evenly items-center">
-			<h1>Click to switch teams</h1>
+			<h2 className="text-3xl">Object State Manager</h2>
+			<h3 className="text-yellow-300">Click button to switch teams</h3>
 			<div className="player-home w-full flex flex-row justify-evenly items-center my-2">
 				<h3
 					className={
@@ -33,18 +38,20 @@ export default function ObjectStateReview() {
 			</div>
 			<div className="playerButtonsHome w-full flex flex-row justify-evenly items-center my-2">
 				<button
-					onClick={() => changeColor("player1")}
+					onClick={p1ChangeColor}
+					key="player1"
 					type="button"
-					className="p-2 flex justify-center items-center"
 					id="player1"
+					className="p-2 flex justify-center items-center"
 				>
 					Player 1
 				</button>
 				<button
-					onClick={() => changeColor("player2")}
+					onClick={p2ChangeColor}
 					type="button"
-					className=" p-2 flex justify-center items-center"
+					key="player2"
 					id="player2"
+					className=" p-2 flex justify-center items-center"
 				>
 					Player 2
 				</button>
