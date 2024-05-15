@@ -12,10 +12,23 @@ export default function ArrayState() {
 
 	const deleteElement = (id: string) => {
 		setArray(() => {
-			return currentArray.filter((element) => id !== element.id && element);
+			return currentArray.filter((element) => id !== element.id);
 		});
 	};
-
+	const incrementBy2 = () => {
+		setArray(() => {
+			return currentArray.map((element) => {
+				return { ...element, number: element.number + 2 };
+			});
+		});
+	};
+	const makeAll3s = () => {
+		setArray(() => {
+			return currentArray.map((element) => {
+				return { id: element.id, number: 3 };
+			});
+		});
+	};
 	const arrayInElements = currentArray.map(
 		({ id, number }: { id: string; number: number }) => {
 			return (
@@ -30,6 +43,7 @@ export default function ArrayState() {
 						onKeyDown={(event) =>
 							event.key !== "Tab" && event.key !== "Shift" && deleteElement(id)
 						}
+						onClick={() => deleteElement(id)}
 						key={`${id} delete button`}
 						className="text-red-600 p-1 flex justify-evenly items-center border border-white rounded-lg"
 					>
@@ -54,6 +68,12 @@ export default function ArrayState() {
 			</ul>
 			<button type="button" className="" onClick={addElement}>
 				Add a random number to array
+			</button>
+			<button type="button" className="" onClick={incrementBy2}>
+				Increment by 2
+			</button>
+			<button type="button" onClick={makeAll3s}>
+				Make every number 3
 			</button>
 		</div>
 	);
