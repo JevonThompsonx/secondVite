@@ -1,6 +1,7 @@
 import "./App.css";
 import ArrayState from "./components/ArrayState";
 import Counter from "./components/Counter";
+import DiceGame from "./components/DiceGame";
 import DoubleCounter from "./components/DoubleCounter";
 import ObjectStateReview from "./components/ObjectStateReview";
 import Players from "./components/Players";
@@ -12,7 +13,8 @@ function App() {
 			<DoubleCounter key="DoubleCounter" />
 			<ObjectStateReview key="ObjectState" />
 			<ArrayState key="ArrayState" />
-			<Players playerAmount={5} key="playerScoreKeeper" />
+			<Players playerAmount={5} scoreGoal={5} key="playerScoreKeeper" />
+			<DiceGame />
 		</div>
 	);
 }
